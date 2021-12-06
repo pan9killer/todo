@@ -1,4 +1,4 @@
-import styles from "./AddItemForm.module.scss";
+import styles from "./index.module.scss";
 
 const AddItemForm = () =>{
   return(

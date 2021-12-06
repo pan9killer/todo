@@ -1,4 +1,4 @@
-import styles from "./AppHeader.module.scss"
+import styles from "./index.module.scss"
 
 const AppHeader = () => {
   return (

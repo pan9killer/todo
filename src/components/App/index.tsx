@@ -1,7 +1,7 @@
-import styles from './App.module.scss';
-import AddItemForm from '../addItemForm';
-import AppHeader from '../appHeader';
-import TodoList from '../todoList';
+import styles from "./index.module.scss";
+import AddItemForm from "../AddItemForm";
+import AppHeader from "../AppHeader";
+import TodoList from "../TodoList";
 
 function App() {
   return (

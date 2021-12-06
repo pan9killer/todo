@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from '../actions/constants'
+import { ADD_TODO, REMOVE_TODO } from './constants'
 
 const initialState = {};
 
