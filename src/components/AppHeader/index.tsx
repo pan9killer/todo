@@ -1,9 +1,7 @@
-import styles from "./index.module.scss"
+// import styles from "./index.module.scss";
 
 const AppHeader = () => {
-  return (
-    <div>App Header</div>
-  )    
+  return <div>App Header</div>;
 };
 
 export default AppHeader;
