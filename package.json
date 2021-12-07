@@ -63,6 +63,10 @@
     "src/*.{ts, tsx}": [
       "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write"
+    ],
+    "src/**/**/*.{ts, tsx}": [
+      "node_modules/.bin/eslint --max-warnings=0",
+      "prettier --write"
     ]
   }
 }
