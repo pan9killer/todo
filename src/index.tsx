@@ -2,7 +2,6 @@ import ReactDOM from "react-dom";
 import "./index.module.scss";
 import App from "./components/App";
 const ax = "ds";
-const asssa = "ds";
-const aszsa = "ds";
-const aszsas = "ds";
+const axx = 12;
+
 ReactDOM.render(<App />, document.getElementById("root"));
