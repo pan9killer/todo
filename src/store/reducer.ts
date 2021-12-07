@@ -1,6 +1,8 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_STATUS } from "./constants";
 
-const initialState = {};
+const initialState = {
+  todoData: ["Добавить изображения", "Вызвать стэйт", "Исправить стили"],
+};
 
 const reducer = (state = initialState, action: any) => {
   switch (action.type) {

@@ -1,0 +1,14 @@
+.list__item {
+  font-size: 1.25rem;
+  button {
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+  }
+  .exclamation__icon {
+    background-image: url("./exclamation-solid.svg");
+  }
+  .trash__icon {
+    background-image: url("./trash-alt-solid.svg");
+  }
+}
