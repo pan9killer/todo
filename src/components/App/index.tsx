@@ -3,7 +3,7 @@ import AddItemForm from "../AddItemForm";
 import AppHeader from "../AppHeader";
 import TodoList from "../TodoList";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>React-Redux ToDo app</h1>
@@ -12,6 +12,6 @@ function App() {
       <AddItemForm />
     </div>
   );
-}
+};
 
 export default App;
