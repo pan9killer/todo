@@ -1,13 +1,22 @@
+import { useSelector } from "react-redux";
 import TodoListItem from "../TodoListItem";
-// import styles from "./index.module.scss";
+import store from "../../store/store";
+import styles from "./index.module.scss";
 
 const TodoList = () => {
-  return (
-    <>
-      <div>TodoList</div>
-      <TodoListItem />
-    </>
-  );
+  const state = store.getState();
+  useSelector((state) => state);
+
+  const elements = state.todoData.map((item, id) => {
+    return (
+      <li key={id} className={styles.list__group__item}>
+        <TodoListItem label={item} />
+      </li>
+    );
+  });
+  console.log(elements);
+
+  return <ul className={styles.list__group}>{elements}</ul>;
 };
 
 export default TodoList;

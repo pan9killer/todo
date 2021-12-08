@@ -1,9 +1,12 @@
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
 import "./index.module.scss";
 import App from "./components/App";
 
-const dsd = 12;
-const s = "dsadsa";
-const dds = "dsadsa";
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);

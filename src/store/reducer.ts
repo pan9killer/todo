@@ -1,8 +1,11 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_STATUS } from "./constants";
+import { IActions } from "../interfaces/interfaces";
 
-const initialState = {};
+const initialState = {
+  todoData: ["Добавить изображения", "Вызвать стэйт", "Исправить стили"],
+};
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: IActions) => {
   switch (action.type) {
     case ADD_TODO:
       return { ...state, todo: action.payload };
