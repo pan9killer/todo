@@ -1,11 +1,11 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_STATUS } from "./constants";
 
-export const addNewItem = (payload: any) => ({ type: ADD_TODO, payload });
-export const toggleItemStatus = (payload: any) => ({
+export const addNewItem = (payload: object) => ({ type: ADD_TODO, payload });
+export const toggleItemStatus = (payload: object) => ({
   type: TOGGLE_STATUS,
   payload,
 });
-export const removeSelectedItem = (payload: any) => ({
+export const removeSelectedItem = (payload: object) => ({
   type: REMOVE_TODO,
   payload,
 });

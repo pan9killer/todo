@@ -1,10 +1,11 @@
+import { useSelector } from "react-redux";
 import TodoListItem from "../TodoListItem";
 import store from "../../store/store";
 import styles from "./index.module.scss";
 
 const TodoList = () => {
   const state = store.getState();
-  console.log(state);
+  useSelector((state) => state);
 
   const elements = state.todoData.map((item, id) => {
     return (
