@@ -1,6 +1,6 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_STATUS } from "./constants";
 
-export const addNewItem = (payload: object) => ({ type: ADD_TODO, payload });
+export const addNewItem = (payload: string) => ({ type: ADD_TODO, payload });
 export const toggleItemStatus = (payload: object) => ({
   type: TOGGLE_STATUS,
   payload,

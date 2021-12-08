@@ -5,10 +5,10 @@ const initialState = {
   todoData: ["Добавить изображения", "Вызвать стэйт", "Исправить стили"],
 };
 
-const reducer = (state = initialState, action: IActions) => {
+export const reducer: any = (state = initialState, action: IActions) => {
   switch (action.type) {
     case ADD_TODO:
-      return { ...state, todo: action.payload };
+      return { todoData: [...state.todoData, action.payload] };
     case TOGGLE_STATUS:
       return { ...state, todo: action.payload };
     case REMOVE_TODO:
@@ -17,5 +17,3 @@ const reducer = (state = initialState, action: IActions) => {
       return state;
   }
 };
-
-export default reducer;

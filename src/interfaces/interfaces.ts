@@ -2,7 +2,6 @@ interface IButton {
   label: string;
   name: string;
 }
-
 export interface IButtons extends Array<IButton> {}
 
 export interface TodoListItemProps {
