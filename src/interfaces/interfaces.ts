@@ -9,6 +9,10 @@ export interface TodoListItemProps {
 }
 
 export interface IActions {
-  payload: object;
+  payload: string;
   type: string;
+}
+
+export interface IState {
+  todoData: Array<string>;
 }
