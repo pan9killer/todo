@@ -7,13 +7,23 @@ export interface IButtons extends Array<IButton> {}
 export interface TodoListItemProps {
   label: string;
   id: number;
+  done: boolean;
+}
+
+export interface IButtonProps {
+  id: number;
 }
 
 export interface IActions {
-  payload: string;
+  payload: number;
+  search: string;
   type: string;
 }
 
 export interface IState {
-  todoData: Array<string>;
+  label: string;
+  important: boolean;
+  done: boolean;
+  id: number;
 }
+export interface IStates extends Array<IState> {}
