@@ -2,7 +2,6 @@ interface IButton {
   label: string;
   name: string;
 }
-
 export interface IButtons extends Array<IButton> {}
 
 export interface TodoListItemProps {
@@ -10,6 +9,10 @@ export interface TodoListItemProps {
 }
 
 export interface IActions {
-  payload: object;
+  payload: string;
   type: string;
+}
+
+export interface IState {
+  todoData: Array<string>;
 }

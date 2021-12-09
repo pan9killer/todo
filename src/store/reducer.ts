@@ -1,21 +1,23 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_STATUS } from "./constants";
-import { IActions } from "../interfaces/interfaces";
+import {
+  ADD_TODO,
+  //  REMOVE_TODO,
+  //   TOGGLE_STATUS
+} from "./constants";
+import { IActions, IState } from "../interfaces/interfaces";
 
 const initialState = {
   todoData: ["Добавить изображения", "Вызвать стэйт", "Исправить стили"],
 };
 
-const reducer = (state = initialState, action: IActions) => {
+export const reducer = (state = initialState, action: IActions): IState => {
   switch (action.type) {
     case ADD_TODO:
-      return { ...state, todo: action.payload };
-    case TOGGLE_STATUS:
-      return { ...state, todo: action.payload };
-    case REMOVE_TODO:
-      return { ...state, todo: action.payload };
+      return { todoData: [...state.todoData, action.payload] };
+    // case TOGGLE_STATUS:
+    //   return { ...state, todo: action.payload };
+    // case REMOVE_TODO:
+    //   return { ...state, todo: action.payload };
     default:
       return state;
   }
 };
-
-export default reducer;
