@@ -8,10 +8,10 @@ const TodoList = () => {
 
   return (
     <ul className={styles.list__group}>
-      {state.todoData.map((item: string, index: number) => {
+      {state.todoData.map((item, index) => {
         return (
-          <li key={index + 1} className={styles.list__group__item}>
-            <TodoListItem label={item} />
+          <li key={index} className={styles.list__group__item}>
+            <TodoListItem label={item} id={index} />
           </li>
         );
       })}

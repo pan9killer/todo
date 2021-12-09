@@ -6,6 +6,7 @@ export interface IButtons extends Array<IButton> {}
 
 export interface TodoListItemProps {
   label: string;
+  id: number;
 }
 
 export interface IActions {
