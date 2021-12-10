@@ -5,12 +5,9 @@ import {
   TOGGLE_DONE,
   SEARCH_DATA,
 } from "./constants";
-import {
-  IActions,
-  //  IStates
-} from "../interfaces/interfaces";
+import { IAdd, IToggleRemove, ISearch, IState } from "../interfaces/interfaces";
 
-const initialState = [
+const initialState: IState[] = [
   {
     label: "Добавить изображения",
     important: false,
@@ -31,9 +28,13 @@ const initialState = [
   },
 ];
 
-export const reducer = (state = initialState, action: IActions): any => {
+export const reducer = (
+  state = initialState,
+  action: IAdd | IToggleRemove | ISearch
+): IState[] => {
   switch (action.type) {
     case ADD_TODO:
+      console.log(action.payload);
       return [...state, action.payload];
 
     case TOGGLE_IMPORTANT:
@@ -46,12 +47,12 @@ export const reducer = (state = initialState, action: IActions): any => {
       return [...state];
 
     case TOGGLE_DONE:
-      // eslint-disable-next-line array-callback-return
-      state.map((todo): void => {
+      state.map((todo) => {
         if (todo.id === action.payload) {
           todo.important = false;
           todo.done = !todo.done;
         }
+        return true;
       });
       return [...state];
 
@@ -60,12 +61,12 @@ export const reducer = (state = initialState, action: IActions): any => {
       return [...newState];
 
     case SEARCH_DATA:
-      console.log(action.search);
+      console.log(action.payload);
       let newArr = state;
-      if (action.search !== "") {
+      if (action.payload !== "") {
         // eslint-disable-next-line array-callback-return
         newArr = newArr.filter((todo) => {
-          todo.label.includes(action.search);
+          todo.label.includes(action.payload);
           console.log(state);
         });
 

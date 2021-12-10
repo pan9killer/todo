@@ -5,6 +5,6 @@ export const createTodoItem = (label: string): IState => {
     label: label,
     important: false,
     done: false,
-    id: Date.now(),
+    id: Number(Date.now()),
   };
 };

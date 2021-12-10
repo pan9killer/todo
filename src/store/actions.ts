@@ -5,8 +5,9 @@ import {
   TOGGLE_DONE,
   SEARCH_DATA,
 } from "./constants";
+import { IState } from "../interfaces/interfaces";
 
-export const addNewItem = (payload: object) => ({ type: ADD_TODO, payload });
+export const addNewItem = (payload: IState) => ({ type: ADD_TODO, payload });
 export const toggleImportant = (payload: number) => ({
   type: TOGGLE_IMPORTANT,
   payload,
@@ -19,7 +20,7 @@ export const removeSelectedItem = (payload: number) => ({
   type: REMOVE_TODO,
   payload,
 });
-export const searchData = (search: string) => ({
+export const searchData = (payload: string) => ({
   type: SEARCH_DATA,
-  search,
+  payload,
 });

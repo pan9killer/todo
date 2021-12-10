@@ -6,17 +6,17 @@ import { Buttons } from "./Buttons";
 
 const TodoListItem = ({ label, id, done }: TodoListItemProps) => {
   const dispatch = useDispatch();
-  let doneStyle;
 
   const changeDoneStatus = (index: number) => {
     dispatch(toggleDone(index));
   };
 
-  done ? (doneStyle = styles.done) : (doneStyle = styles.standart);
-
   return (
     <div className={styles.list__item}>
-      <span onClick={() => changeDoneStatus(id)} className={doneStyle}>
+      <span
+        onClick={() => changeDoneStatus(id)}
+        className={done ? styles.done : styles.standart}
+      >
         {label}
       </span>
       <Buttons id={id} />
