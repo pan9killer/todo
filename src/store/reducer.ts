@@ -3,9 +3,9 @@ import {
   REMOVE_TODO,
   TOGGLE_IMPORTANT,
   TOGGLE_DONE,
-  SEARCH_DATA,
+  UPDATE,
 } from "./constants";
-import { IAdd, IToggleRemove, ISearch, IState } from "../interfaces/interfaces";
+import { IAction, ISearch, IState } from "../interfaces/interfaces";
 
 const initialState: IState[] = [
   {
@@ -28,27 +28,23 @@ const initialState: IState[] = [
   },
 ];
 
-export const reducer = (
-  state = initialState,
-  action: IAdd | IToggleRemove | ISearch
-): IState[] => {
+export const reducer = (state = initialState, action: IAction): IState[] => {
   switch (action.type) {
     case ADD_TODO:
-      console.log(action.payload);
       return [...state, action.payload];
 
     case TOGGLE_IMPORTANT:
-      // eslint-disable-next-line array-callback-return
-      state.map((todo): void => {
-        if (todo.id === action.payload) {
+      state.map((todo) => {
+        if (todo.id === action.payload.id) {
           todo.important = !todo.important;
         }
+        return true;
       });
       return [...state];
 
     case TOGGLE_DONE:
       state.map((todo) => {
-        if (todo.id === action.payload) {
+        if (todo.id === action.payload.id) {
           todo.important = false;
           todo.done = !todo.done;
         }
@@ -57,25 +53,20 @@ export const reducer = (
       return [...state];
 
     case REMOVE_TODO:
-      const newState = state.filter((todo) => action.payload !== todo.id);
+      const newState = state.filter((todo) => action.payload.id !== todo.id);
       return [...newState];
 
-    case SEARCH_DATA:
-      console.log(action.payload);
-      let newArr = state;
-      if (action.payload !== "") {
-        // eslint-disable-next-line array-callback-return
-        newArr = newArr.filter((todo) => {
-          todo.label.includes(action.payload);
-          console.log(state);
-        });
+    default:
+      return state;
+  }
+};
 
-        console.log(newArr);
-        console.log(state);
-        return [...newArr];
-      } else {
-        return [...state];
-      }
+const searchState: string = "";
+
+export const searchReducer = (state = searchState, action: ISearch): string => {
+  switch (action.type) {
+    case UPDATE:
+      return action.payload;
 
     default:
       return state;

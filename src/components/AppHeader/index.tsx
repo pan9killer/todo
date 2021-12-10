@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 import { IState } from "../../interfaces/interfaces";
 import styles from "./index.module.scss";
 
 const AppHeader = () => {
-  const state = useSelector((state: IState[]) => state);
+  const state = useSelector<RootState, IState[]>((state) => state.reducer);
   const notDone = state.filter((item) => item.done === false);
   const done = state.filter((item) => item.done === true);
 

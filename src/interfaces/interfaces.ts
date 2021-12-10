@@ -21,13 +21,13 @@ export interface IState {
   id: number;
 }
 
-export interface IActions {
-  payload: IState;
-  search: string;
-  type: string;
-}
+// export interface IActions {
+//   payload: IState;
+//   search: string;
+//   type: string;
+// }
 
-export interface IAdd {
+export interface IAction {
   payload: IState;
   type: string;
 }
@@ -40,4 +40,14 @@ export interface IToggleRemove {
 export interface ISearch {
   payload: string;
   type: string;
+}
+
+export interface TodoListItemI {
+  item: IState;
+}
+
+export interface IParams {
+  all: Function;
+  done: Function;
+  active: Function;
 }

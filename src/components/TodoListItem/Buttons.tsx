@@ -1,16 +1,20 @@
 import { useDispatch } from "react-redux";
 import { removeSelectedItem, toggleImportant } from "../../store/actions";
-import { IButtonProps } from "../../interfaces/interfaces";
+import { IState } from "../../interfaces/interfaces";
 import styles from "./index.module.scss";
 
-export const Buttons = ({ id }: IButtonProps) => {
+interface TodoListItemI {
+  item: IState;
+}
+
+export const Buttons = ({ item }: TodoListItemI) => {
   const dispatch = useDispatch();
 
-  const removeItem = (index: number) => {
+  const removeItem = (index: IState) => {
     dispatch(removeSelectedItem(index));
   };
 
-  const toggleImportantItem = (index: number) => {
+  const toggleImportantItem = (index: IState) => {
     dispatch(toggleImportant(index));
   };
 
@@ -19,7 +23,7 @@ export const Buttons = ({ id }: IButtonProps) => {
       <button
         type="button"
         className="btn btn-outline-success btn-sm float-end"
-        onClick={() => toggleImportantItem(id)}
+        onClick={() => toggleImportantItem(item)}
       >
         <i className={styles.exclamation__icon} />
       </button>
@@ -27,9 +31,11 @@ export const Buttons = ({ id }: IButtonProps) => {
       <button
         type="button"
         className="btn btn-outline-danger btn-sm float-end"
-        onClick={() => removeItem(id)}
+        onClick={() => removeItem(item)}
       >
-        <i className={styles.trash__icon} />
+        <i className={styles.trash__icon}>
+          <img src="./trash" alt="trash" />
+        </i>
       </button>
     </>
   );

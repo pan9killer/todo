@@ -1,25 +1,25 @@
 import styles from "./index.module.scss";
 import { useDispatch } from "react-redux";
 import { toggleDone } from "../../store/actions";
-import { TodoListItemProps } from "../../interfaces/interfaces";
+import { IState, TodoListItemI } from "../../interfaces/interfaces";
 import { Buttons } from "./Buttons";
 
-const TodoListItem = ({ label, id, done }: TodoListItemProps) => {
+const TodoListItem = ({ item }: TodoListItemI) => {
   const dispatch = useDispatch();
 
-  const changeDoneStatus = (index: number) => {
+  const changeDoneStatus = (index: IState) => {
     dispatch(toggleDone(index));
   };
 
   return (
     <div className={styles.list__item}>
       <span
-        onClick={() => changeDoneStatus(id)}
-        className={done ? styles.done : styles.standart}
+        onClick={() => changeDoneStatus(item)}
+        className={item.done ? styles.done : styles.standart}
       >
-        {label}
+        {item.label}
       </span>
-      <Buttons id={id} />
+      <Buttons item={item} />
     </div>
   );
 };
