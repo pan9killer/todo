@@ -1,0 +1,13 @@
+.header {
+  margin-top: 5%;
+  margin-bottom: 3%;
+  h1 {
+    flex-grow: 1;
+  }
+  h2 {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    color: grey;
+  }
+}
