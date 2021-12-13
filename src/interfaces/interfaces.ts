@@ -21,12 +21,6 @@ export interface IState {
   id: number;
 }
 
-// export interface IActions {
-//   payload: IState;
-//   search: string;
-//   type: string;
-// }
-
 export interface IAction {
   payload: IState;
   type: string;
@@ -54,4 +48,16 @@ export interface IParams {
 
 export interface TodoListItemI {
   item: IState;
+}
+
+export interface TodoListButtonsI {
+  item: IState;
+  component: JSX.Element;
+  handler: Function;
+  classes: string;
+}
+
+export interface IStatusButtons {
+  label: string;
+  handler: Function;
 }

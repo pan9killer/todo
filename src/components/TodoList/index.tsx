@@ -15,6 +15,20 @@ const TodoList = () => {
     (state) => state.searchReducer
   );
 
+  const filteredState = state
+    .filter((item) =>
+      item.label.toLowerCase().includes(searchState.toLowerCase())
+    )
+    .filter((item) => {
+      if (statusState === "done") {
+        return item.done;
+      }
+      if (statusState === "active") {
+        return !item.done;
+      }
+      return item;
+    });
+
   return (
     <>
       <div className={styles.searchbox}>
@@ -22,31 +36,20 @@ const TodoList = () => {
         <ItemStatusFilter />
       </div>
       <ul className={styles.list__group}>
-        {state
-          .filter((item) =>
-            item.label.toLowerCase().includes(searchState.toLowerCase())
-          )
-          .filter((item) =>
-            statusState === "all"
-              ? item
-              : statusState === "active"
-              ? !item.done
-              : item.done
-          )
-          .map((item) => {
-            return (
-              <li
-                key={item.id}
-                className={
-                  item.important
-                    ? styles.list__group__item_important
-                    : styles.list__group__item
-                }
-              >
-                <TodoListItem item={item} />
-              </li>
-            );
-          })}
+        {filteredState.map((item) => {
+          return (
+            <li
+              key={item.id}
+              className={
+                item.important
+                  ? styles.list__group__item_important
+                  : styles.list__group__item
+              }
+            >
+              <TodoListItem item={item} />
+            </li>
+          );
+        })}
       </ul>
     </>
   );
