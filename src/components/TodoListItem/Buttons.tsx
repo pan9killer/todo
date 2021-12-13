@@ -1,30 +1,24 @@
-import { useDispatch } from "react-redux";
-import { removeSelectedItem } from "../../store/actions";
-import styles from "./index.module.scss";
+import { removeSelectedItem, toggleImportant } from "../../store/actions";
+import { TodoListItemI } from "../../interfaces/interfaces";
+import Trash from "../icons/Trash";
+import Exclamation from "../icons/Exclamation";
+import { Button } from "./Button";
 
-export const Buttons = ({ id }: any) => {
-  const dispatch = useDispatch();
-  const removeItem = (index: number) => {
-    dispatch(removeSelectedItem(index));
-  };
-
+export const Buttons = ({ item }: TodoListItemI) => {
   return (
     <>
-      <button
-        type="button"
-        className="btn btn-outline-success btn-sm float-end"
-        // onClick={onToggleImportant}
-      >
-        <i className={styles.exclamation__icon} />
-      </button>
-
-      <button
-        type="button"
-        className="btn btn-outline-danger btn-sm float-end"
-        onClick={() => removeItem(id)}
-      >
-        <i className={styles.trash__icon} />
-      </button>
+      <Button
+        component={<Exclamation />}
+        item={item}
+        classes={"btn btn-outline-success btn-sm float-end"}
+        handler={toggleImportant}
+      />
+      <Button
+        component={<Trash />}
+        item={item}
+        handler={removeSelectedItem}
+        classes={"btn btn-outline-danger btn-sm float-end"}
+      />
     </>
   );
 };

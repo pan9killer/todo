@@ -1,17 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState, FormEvent } from "react";
 import { addNewItem } from "../../store/actions";
+import { createTodoItem } from "../../utils/createItem";
 import styles from "./index.module.scss";
 
 const AddItemForm = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
-  useSelector((state) => state);
 
   const addNewTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value) return;
-    dispatch(addNewItem(value));
+    dispatch(addNewItem(createTodoItem(value)));
     setValue("");
   };
 
