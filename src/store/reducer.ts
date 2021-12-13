@@ -4,6 +4,9 @@ import {
   TOGGLE_IMPORTANT,
   TOGGLE_DONE,
   UPDATE,
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_DONE,
 } from "./constants";
 import { IAction, ISearch, IState } from "../interfaces/interfaces";
 
@@ -67,6 +70,24 @@ export const searchReducer = (state = searchState, action: ISearch): string => {
   switch (action.type) {
     case UPDATE:
       return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+const statusState: "all" | "done" | "active" = "all";
+
+export const statusReducer = (state = statusState, action: ISearch) => {
+  switch (action.type) {
+    case SHOW_ALL:
+      return "all";
+
+    case SHOW_ACTIVE:
+      return "active";
+
+    case SHOW_DONE:
+      return "done";
 
     default:
       return state;

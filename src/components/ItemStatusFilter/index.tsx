@@ -1,6 +1,22 @@
-import { IParams } from "../../interfaces/interfaces";
+// import { IParams } from "../../interfaces/interfaces";
+import { useDispatch } from "react-redux";
+import { showAll, showActive, showDone } from "../../store/actions";
 
-const ItemStatusFilter = ({ all, done, active }: IParams) => {
+const ItemStatusFilter = () => {
+  const dispatch = useDispatch();
+
+  const showAllItems = () => {
+    dispatch(showAll());
+  };
+
+  const showActiveItems = () => {
+    dispatch(showActive());
+  };
+
+  const showDoneItems = () => {
+    dispatch(showDone());
+  };
+
   return (
     <div className="btn-group">
       <button
@@ -8,7 +24,7 @@ const ItemStatusFilter = ({ all, done, active }: IParams) => {
         className="btn btn-outline-secondary"
         key="all"
         onClick={() => {
-          all();
+          showAllItems();
         }}
       >
         Все
@@ -19,7 +35,7 @@ const ItemStatusFilter = ({ all, done, active }: IParams) => {
         className="btn btn-outline-secondary"
         key="done"
         onClick={() => {
-          done();
+          showDoneItems();
         }}
       >
         Готово
@@ -30,7 +46,7 @@ const ItemStatusFilter = ({ all, done, active }: IParams) => {
         className="btn btn-outline-secondary"
         key="active"
         onClick={() => {
-          active();
+          showActiveItems();
         }}
       >
         Активно

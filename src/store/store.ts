@@ -1,6 +1,6 @@
 // import {  getDefaultMiddleware } from "@reduxjs/toolkit";
 import { createStore, combineReducers } from "redux";
-import { reducer, searchReducer } from "./reducer";
+import { reducer, searchReducer, statusReducer } from "./reducer";
 
 // const middleware = getDefaultMiddleware({
 //   immutableCheck: false,
@@ -11,6 +11,7 @@ import { reducer, searchReducer } from "./reducer";
 const reducers = combineReducers({
   reducer,
   searchReducer,
+  statusReducer,
 });
 
 const store = createStore(reducers);

@@ -4,3 +4,6 @@ export const TOGGLE_IMPORTANT: string = "TOGGLE_IMPORTANT";
 export const TOGGLE_DONE: string = "TOGGLE_DONE";
 export const SEARCH_DATA: string = "SEARCH_DATA";
 export const UPDATE: string = "UPDATE";
+export const SHOW_ALL: string = "SHOW_ALL";
+export const SHOW_ACTIVE: string = "SHOW_ACTIVE";
+export const SHOW_DONE: string = "SHOW_DONE";

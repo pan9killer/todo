@@ -4,6 +4,9 @@ import {
   TOGGLE_IMPORTANT,
   TOGGLE_DONE,
   UPDATE,
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_DONE,
 } from "./constants";
 import { IState } from "../interfaces/interfaces";
 
@@ -18,3 +21,8 @@ export const removeSelectedItem = (payload: IState) => ({
   payload,
 });
 export const searchData = (payload: string) => ({ type: UPDATE, payload });
+export const showAll = () => ({ type: SHOW_ALL });
+export const showActive = () => ({
+  type: SHOW_ACTIVE,
+});
+export const showDone = () => ({ type: SHOW_DONE });

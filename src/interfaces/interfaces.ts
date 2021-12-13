@@ -51,3 +51,7 @@ export interface IParams {
   done: Function;
   active: Function;
 }
+
+export interface TodoListItemI {
+  item: IState;
+}

@@ -2,16 +2,9 @@
   font-size: 1.25rem;
   button {
     width: 25px;
-    height: 25px;
+    height: 26px;
     margin: 3px;
-  }
-  .exclamation__icon {
-    background-image: url("./exclamation-solid.svg");
-    z-index: 2;
-  }
-  .trash__icon {
-    background-image: url("./trash.svg");
-    // z-index: 2;
+    padding: 0 1% 1%;
   }
   .done {
     text-decoration: line-through;
